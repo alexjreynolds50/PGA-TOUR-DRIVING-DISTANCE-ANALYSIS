@@ -23,8 +23,6 @@ drive.mount('/content/gdrive')
 
     Mounted at /content/gdrive
 
-
-
 ```python
 df = pd.read_csv('/content/gdrive/My Drive/Colab Datasets/PGATOUR_meta2.csv')
 ```
@@ -117,8 +115,6 @@ df.columns
            'MAKES_BOGEY%', 'BOGEYS_MADE', 'HOLES_PLAYED', 'AGE', 'MONEY',
            'COUNTRY'],
           dtype='object')
-
-
 
 Look at dtypes of columns and quick look at null values
 
@@ -217,7 +213,7 @@ df.FAIRWAYS_HIT.max()
 ```
 
 
-    '958'
+    '1060'
 
 
 
@@ -227,9 +223,7 @@ df.TOTAL_DRIVES.max()
 ```
 
 
-    '994'
-
-
+    '1344'
 
 Both FAIRWAY_HIT and TOTAL_DRIVES have values greater than 1000 and contain commas leading to object dtypes. 
 
@@ -260,8 +254,6 @@ All appropriate columns converted to int64 dtypes for analysis
 ```python
 df.sample(5)
 ```
-
-
 
 <table border="1" class="dataframe">
   <thead>
@@ -1549,7 +1541,7 @@ bottom_50_df.count()
 
 
 
-##Distribution of data
+## Distribution of data
 
 Obtain skewness and kurtosis values of data distribution
 
@@ -1659,8 +1651,7 @@ print(f'The skewness is {round(skew.AVG_SCORE, 2)} and kurtosis is {round(kurt.A
 
 We see a normal distribution of the AVG_SCORE data with slightly postivie skewness and moderate kurtosis
 
-
-##Hypothesis 1 Analysis
+## Hypothesis 1 Analysis
 
 
 *   **HO = Players with higher average driving distance will not have more success on PGA Tour.**
@@ -2087,24 +2078,18 @@ for x in h1_list:
 
     The t-test results for AVG_Driving_DISTANCE column comparing the top and bottom 50% in average driving distance are:
     Ttest_indResult(statistic=17.977004473009526, pvalue=2.9831462094179926e-43)
+    
+    The t-test results for NUMBER_OF_WINS column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=2.263607206946361, pvalue=0.024699518256500137)
+    
+    The t-test results for NUMBER_OF_TOP_Tens column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=3.4735514944529537, pvalue=0.0006327165997008301)
+    
+    The t-test results for MONEY column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=4.449060442456906, pvalue=1.4480132101464633e-05)
+    
 
-
-​    
-​    The t-test results for NUMBER_OF_WINS column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=2.263607206946361, pvalue=0.024699518256500137)
-
-
-​    
-​    The t-test results for NUMBER_OF_TOP_Tens column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=3.4735514944529537, pvalue=0.0006327165997008301)
-
-
-​    
-​    The t-test results for MONEY column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=4.449060442456906, pvalue=1.4480132101464633e-05)
-
-
-​    
+​      
 
 
 Statistical significance seen between the two groups in all 3 variables with all p-values <= 0.05.
@@ -2126,24 +2111,18 @@ for y in h1_list:
 
     The t-test results for AVG_Driving_DISTANCE column comparing the over and under average driving distance of 300 yards are:
     Ttest_indResult(statistic=17.283678491926892, pvalue=4.681984277618193e-41)
+    
+    The t-test results for NUMBER_OF_WINS column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=3.164830495977456, pvalue=0.0018032590013044387)
+      
+    The t-test results for NUMBER_OF_TOP_Tens column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=4.11407182735084, pvalue=5.752419264872462e-05)
+      
+    The t-test results for MONEY column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=4.872578015825289, pvalue=2.2911126223226177e-06)
 
 
-​    
-​    The t-test results for NUMBER_OF_WINS column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=3.164830495977456, pvalue=0.0018032590013044387)
-
-
-​    
-​    The t-test results for NUMBER_OF_TOP_Tens column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=4.11407182735084, pvalue=5.752419264872462e-05)
-
-
-​    
-​    The t-test results for MONEY column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=4.872578015825289, pvalue=2.2911126223226177e-06)
-
-
-​    
+  ​        
 
 
 Statistical significance seen between the two groups in all 3 variables with all p-values <= 0.05. All p-values indicating more statistical significance between over/under 300 yard groupings than between top/bottom 50% groupings. 
@@ -2654,34 +2633,24 @@ for x in h2_list:
 
     The t-test results for AVG_Driving_DISTANCE column comparing the top and bottom 50% in average driving distance are:
     Ttest_indResult(statistic=17.977004473009526, pvalue=2.9831462094179926e-43)
+    
+    The t-test results for SG_PER_ROUND column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=4.711458528569094, pvalue=4.666726706320066e-06)
+        
+    The t-test results for SG:OTT column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=6.723739272937005, pvalue=1.9097909964039726e-10)
+        
+    The t-test results for SG:APR column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=1.9782929293867122, pvalue=0.04930375538317859)
+    
+    The t-test results for SG:ARG column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=0.18047586471968233, pvalue=0.8569664244349027)
+      
+    The t-test results for TOTAL_SG:PUTTING column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=-1.3094745834320003, pvalue=0.19191441093996892)
 
 
-​    
-​    The t-test results for SG_PER_ROUND column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=4.711458528569094, pvalue=4.666726706320066e-06)
-
-
-​    
-​    The t-test results for SG:OTT column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=6.723739272937005, pvalue=1.9097909964039726e-10)
-
-
-​    
-​    The t-test results for SG:APR column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=1.9782929293867122, pvalue=0.04930375538317859)
-
-
-​    
-​    The t-test results for SG:ARG column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=0.18047586471968233, pvalue=0.8569664244349027)
-
-
-​    
-​    The t-test results for TOTAL_SG:PUTTING column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=-1.3094745834320003, pvalue=0.19191441093996892)
-
-
-​    
+  ​      
 
 *   Statistically significant strokes gained per round between the top 50% and bottom 50% average driving distance groupings with a p-value of 4.66e-06.
 *   Also see statistical significance between stroked gained off the tee and approach shot but not in strokes gained around the green and putting. 
@@ -2700,34 +2669,22 @@ for y in h2_list:
 
     The t-test results for AVG_Driving_DISTANCE column comparing the over and under average driving distance of 300 yards are:
     Ttest_indResult(statistic=17.283678491926892, pvalue=4.681984277618193e-41)
+    
+    The t-test results for SG_PER_ROUND column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=5.136166108405067, pvalue=6.827833962369511e-07)
+     
+    The t-test results for SG:OTT column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=7.5524519484132435, pvalue=1.6623456136910585e-12)
+     
+    The t-test results for SG:APR column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=1.8121738656511948, pvalue=0.07151351629223547)
+      
+    The t-test results for SG:ARG column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=0.622305786166279, pvalue=0.5344753280212086)
+     
+    The t-test results for TOTAL_SG:PUTTING column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=-1.1229272480016679, pvalue=0.2628633304520743)
 
-
-​    
-​    The t-test results for SG_PER_ROUND column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=5.136166108405067, pvalue=6.827833962369511e-07)
-
-
-​    
-​    The t-test results for SG:OTT column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=7.5524519484132435, pvalue=1.6623456136910585e-12)
-
-
-​    
-​    The t-test results for SG:APR column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=1.8121738656511948, pvalue=0.07151351629223547)
-
-
-​    
-​    The t-test results for SG:ARG column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=0.622305786166279, pvalue=0.5344753280212086)
-
-
-​    
-​    The t-test results for TOTAL_SG:PUTTING column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=-1.1229272480016679, pvalue=0.2628633304520743)
-
-
-​    
 
 
 
@@ -2758,8 +2715,7 @@ Other insights gained related to strokes gained statistics:
 
 
 
-
-##Hypothesis 3 Analysis
+## Hypothesis 3 Analysis
 
 *   **HO = Players with higher average driving distance will not have lower scoring averages**
 *   **HA = Players with higher average driving distance will have lower scoring averages**
@@ -2781,8 +2737,6 @@ h3_list = (['AVG_Driving_DISTANCE', 'AVG_SCORE','PAR_OR_BETTER'])
 
 
 Descriptive Statistics for H3 in Bottom 50%, Top 50%, and Over 300 yard driving distance groupings:
-
-
 
 ```python
 bottom_50_df[h3_list].describe()
@@ -2849,8 +2803,6 @@ bottom_50_df[h3_list].describe()
     </tr>
   </tbody>
 </table>
-
-
 
 
 
@@ -2922,13 +2874,9 @@ top_50_df[h3_list].describe()
 
 
 
-
-
 ```python
 over_300_df[h3_list].describe()
 ```
-
-
 
 <table border="1" class="dataframe">
   <thead>
@@ -2990,10 +2938,6 @@ over_300_df[h3_list].describe()
     </tr>
   </tbody>
 </table>
-
-
-
-
  
 
 
@@ -3043,8 +2987,6 @@ h3_list_corr_df
     </tr>
   </tbody>
 </table>
-
-
 
 
 Confirm the negative correlation between average driving distance and average scoring, so the higher the driving distance the lower that player scores.
@@ -3134,19 +3076,15 @@ for x in h3_list:
 
     The t-test results for AVG_Driving_DISTANCE column comparing the top and bottom 50% in average driving distance are:
     Ttest_indResult(statistic=17.977004473009526, pvalue=2.9831462094179926e-43)
+    
+    The t-test results for AVG_SCORE column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=-4.225368653932252, pvalue=3.6606668081070745e-05)
+    
+    The t-test results for PAR_OR_BETTER column comparing the top and bottom 50% in average driving distance are:
+    Ttest_indResult(statistic=-1.8198240595544244, pvalue=0.07031918864409493)
 
 
-​    
-​    The t-test results for AVG_SCORE column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=-4.225368653932252, pvalue=3.6606668081070745e-05)
 
-
-​    
-​    The t-test results for PAR_OR_BETTER column comparing the top and bottom 50% in average driving distance are:
-​    Ttest_indResult(statistic=-1.8198240595544244, pvalue=0.07031918864409493)
-
-
-​    
 
 
 Statistically significant for the average score between the top 50% and bottom 50% average driving distance groupings with a p-value of 3.66e-05.
@@ -3163,19 +3101,15 @@ for y in h3_list:
 
     The t-test results for AVG_Driving_DISTANCE column comparing the over and under average driving distance of 300 yards are:
     Ttest_indResult(statistic=17.283678491926892, pvalue=4.681984277618193e-41)
+    
+    The t-test results for AVG_SCORE column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=-4.431973933828141, pvalue=1.5640004669604865e-05)
+    
+    The t-test results for PAR_OR_BETTER column comparing the over and under average driving distance of 300 yards are:
+    Ttest_indResult(statistic=-1.1746633958676564, pvalue=0.24157668212690542)
 
 
-​    
-​    The t-test results for AVG_SCORE column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=-4.431973933828141, pvalue=1.5640004669604865e-05)
 
-
-​    
-​    The t-test results for PAR_OR_BETTER column comparing the over and under average driving distance of 300 yards are:
-​    Ttest_indResult(statistic=-1.1746633958676564, pvalue=0.24157668212690542)
-
-
-​    
 
 
 Statistically significant for the average score between the over 300 and under 300 yard average driving distance groupings with a p-value of 1.56e-05.
@@ -3196,7 +3130,7 @@ Summary and Conclusion of H3 Testing:
 *   Interesting to see a negative correlation with driving distance and total pars or better, especially with a lower average score in longer driving distances
 *   This likely means that players with increased driving distance score more birdies and eagles, but also more bogeys or worse
 
-##Other Trends Related to Driving Distance
+## Other Trends Related to Driving Distance
 
 Create list of variables to analyze
 
