@@ -53,10 +53,6 @@ df = pd.read_csv('/content/gdrive/My Drive/Colab Datasets/PGATOUR_meta2.csv')
 *   Golf is one of the few sports where you are trying to shoot a low score. So the lower the score, the better.
 *   Strokes gained is a statistic the measures how many strokes are gained on the field from various shots on each holes.  The more strokes gained the better.
 
-
-
-
-
 ## Hypotheses
 
 **Hypothesis 1:**
@@ -76,7 +72,7 @@ df = pd.read_csv('/content/gdrive/My Drive/Colab Datasets/PGATOUR_meta2.csv')
 *   HA = Players with higher average driving distance will have lower scoring averages
 
 
-##Exploratory Dataset Analysis and Wrangle
+## Exploratory Dataset Analysis and Wrangle
 
 
 Includes 195 players and 71 columns
@@ -85,8 +81,6 @@ Includes 195 players and 71 columns
 ```python
 df.shape
 ```
-
-
 
 
     (195, 71)
@@ -99,8 +93,6 @@ Columns in dataset
 ```python
 df.columns
 ```
-
-
 
 
     Index(['Player', 'EVENTS_PLAYED', 'POINTS', 'NUMBER_OF_WINS',
@@ -225,8 +217,6 @@ df.FAIRWAYS_HIT.max()
 ```
 
 
-
-
     '958'
 
 
@@ -235,8 +225,6 @@ df.FAIRWAYS_HIT.max()
 ```python
 df.TOTAL_DRIVES.max()
 ```
-
-
 
 
     '994'
@@ -262,11 +250,7 @@ df.TOTAL_DRIVES.dtypes
 ```
 
 
-
-
     dtype('int64')
-
-
 
 All appropriate columns converted to int64 dtypes for analysis
 
@@ -279,21 +263,6 @@ df.sample(5)
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -744,8 +713,6 @@ df.sample(5)
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 Descriptive Statistics across all columns
@@ -756,22 +723,6 @@ df.describe()
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1426,8 +1377,6 @@ df.describe()
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 Assess for null/empty values
@@ -1470,7 +1419,7 @@ print(sort_num_null)
 
 Only empty value has no consequence to analysis
 
-##EDA of driving distance statistics
+## EDA of driving distance statistics
 
 Descriptive Statistics of average driving distance column
 
@@ -1478,8 +1427,6 @@ Descriptive Statistics of average driving distance column
 ```python
 df.AVG_Driving_DISTANCE.describe()
 ```
-
-
 
 
     count    195.000000
@@ -1491,8 +1438,6 @@ df.AVG_Driving_DISTANCE.describe()
     75%      301.650000
     max      320.200000
     Name: AVG_Driving_DISTANCE, dtype: float64
-
-
 
 Separate data into groups based on average driving distance for future analysis
 
@@ -1536,8 +1481,6 @@ over_300_df.count()
 ```
 
 
-
-
     Player                62
     EVENTS_PLAYED         62
     POINTS                62
@@ -1570,8 +1513,6 @@ top_50_df.count()
 ```
 
 
-
-
     Player                99
     EVENTS_PLAYED         99
     POINTS                99
@@ -1591,8 +1532,6 @@ top_50_df.count()
 ```python
 bottom_50_df.count()
 ```
-
-
 
 
     Player                98
@@ -1757,22 +1696,6 @@ bottom_50_df[h1_list].describe()
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1842,8 +1765,6 @@ bottom_50_df[h1_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 
@@ -1853,21 +1774,6 @@ top_50_df[h1_list].describe()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1937,8 +1843,6 @@ top_50_df[h1_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 
@@ -1948,21 +1852,6 @@ over_300_df[h1_list].describe()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2032,13 +1921,9 @@ over_300_df[h1_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 We see an increase in means and medians across wins, top 10s, and money won as the groupings increase in average driving distance. 
-
-
 
 ---
 
@@ -2052,22 +1937,6 @@ h1_list_corr_df
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2109,8 +1978,6 @@ h1_list_corr_df
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 We notice positive correlations between average driving distance, wins, top 10s, and money won.  With highest correlation between average driving distance and money won at 0.447.
@@ -2132,8 +1999,6 @@ plt.show()
 
 
 ---
-
-
 
 Box and whisker plot of Wins vs Driving Distance
 
@@ -2225,18 +2090,18 @@ for x in h1_list:
 
 
 ​    
-    The t-test results for NUMBER_OF_WINS column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=2.263607206946361, pvalue=0.024699518256500137)
+​    The t-test results for NUMBER_OF_WINS column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=2.263607206946361, pvalue=0.024699518256500137)
 
 
 ​    
-    The t-test results for NUMBER_OF_TOP_Tens column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=3.4735514944529537, pvalue=0.0006327165997008301)
+​    The t-test results for NUMBER_OF_TOP_Tens column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=3.4735514944529537, pvalue=0.0006327165997008301)
 
 
 ​    
-    The t-test results for MONEY column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=4.449060442456906, pvalue=1.4480132101464633e-05)
+​    The t-test results for MONEY column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=4.449060442456906, pvalue=1.4480132101464633e-05)
 
 
 ​    
@@ -2264,18 +2129,18 @@ for y in h1_list:
 
 
 ​    
-    The t-test results for NUMBER_OF_WINS column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=3.164830495977456, pvalue=0.0018032590013044387)
+​    The t-test results for NUMBER_OF_WINS column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=3.164830495977456, pvalue=0.0018032590013044387)
 
 
 ​    
-    The t-test results for NUMBER_OF_TOP_Tens column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=4.11407182735084, pvalue=5.752419264872462e-05)
+​    The t-test results for NUMBER_OF_TOP_Tens column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=4.11407182735084, pvalue=5.752419264872462e-05)
 
 
 ​    
-    The t-test results for MONEY column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=4.872578015825289, pvalue=2.2911126223226177e-06)
+​    The t-test results for MONEY column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=4.872578015825289, pvalue=2.2911126223226177e-06)
 
 
 ​    
@@ -2285,8 +2150,6 @@ Statistical significance seen between the two groups in all 3 variables with all
 
 
 ---
-
-
 
 Summary and Conclusion of H1 Testing:
 
@@ -2301,22 +2164,10 @@ Summary and Conclusion of H1 Testing:
 
 
 
-
-
-
-
-##Hypothesis 2 Analysis
-
-
-
-
+## Hypothesis 2 Analysis
 
 *   **HO = Players with higher average driving distance will not have better strokes gained per round.**
 *   **HA = Players with higher average driving distance will have better strokes gained per round.**
-
-
-
-
 
 Create list of variables for H2 analysis for all strokes gained statistics
 
@@ -2338,22 +2189,6 @@ bottom_50_df[h2_list].describe()
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2441,8 +2276,6 @@ bottom_50_df[h2_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 
@@ -2451,22 +2284,6 @@ top_50_df[h2_list].describe()
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2554,8 +2371,6 @@ top_50_df[h2_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 
@@ -2564,22 +2379,6 @@ over_300_df[h2_list].describe()
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2667,8 +2466,6 @@ over_300_df[h2_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 We see increases in mean strokes gained per round from bottom 50% to top 50% to over 300 yard groupings. 
@@ -2676,8 +2473,6 @@ We see increases in mean strokes gained per round from bottom 50% to top 50% to 
 
 
 ---
-
-
 
 Look at correlations between all strokes gained variables
 
@@ -2688,22 +2483,6 @@ h2_list_corr_df
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2773,10 +2552,6 @@ h2_list_corr_df
     </tr>
   </tbody>
 </table>
-</div>
-
-
-
 
 
 *   We see positive correlations between average driving distance and strokes gained per round with .45 correlation.
@@ -2882,33 +2657,31 @@ for x in h2_list:
 
 
 ​    
-    The t-test results for SG_PER_ROUND column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=4.711458528569094, pvalue=4.666726706320066e-06)
+​    The t-test results for SG_PER_ROUND column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=4.711458528569094, pvalue=4.666726706320066e-06)
 
 
 ​    
-    The t-test results for SG:OTT column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=6.723739272937005, pvalue=1.9097909964039726e-10)
+​    The t-test results for SG:OTT column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=6.723739272937005, pvalue=1.9097909964039726e-10)
 
 
 ​    
-    The t-test results for SG:APR column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=1.9782929293867122, pvalue=0.04930375538317859)
+​    The t-test results for SG:APR column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=1.9782929293867122, pvalue=0.04930375538317859)
 
 
 ​    
-    The t-test results for SG:ARG column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=0.18047586471968233, pvalue=0.8569664244349027)
+​    The t-test results for SG:ARG column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=0.18047586471968233, pvalue=0.8569664244349027)
 
 
 ​    
-    The t-test results for TOTAL_SG:PUTTING column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=-1.3094745834320003, pvalue=0.19191441093996892)
+​    The t-test results for TOTAL_SG:PUTTING column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=-1.3094745834320003, pvalue=0.19191441093996892)
 
 
 ​    
-
-
 
 *   Statistically significant strokes gained per round between the top 50% and bottom 50% average driving distance groupings with a p-value of 4.66e-06.
 *   Also see statistical significance between stroked gained off the tee and approach shot but not in strokes gained around the green and putting. 
@@ -2930,28 +2703,28 @@ for y in h2_list:
 
 
 ​    
-    The t-test results for SG_PER_ROUND column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=5.136166108405067, pvalue=6.827833962369511e-07)
+​    The t-test results for SG_PER_ROUND column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=5.136166108405067, pvalue=6.827833962369511e-07)
 
 
 ​    
-    The t-test results for SG:OTT column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=7.5524519484132435, pvalue=1.6623456136910585e-12)
+​    The t-test results for SG:OTT column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=7.5524519484132435, pvalue=1.6623456136910585e-12)
 
 
 ​    
-    The t-test results for SG:APR column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=1.8121738656511948, pvalue=0.07151351629223547)
+​    The t-test results for SG:APR column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=1.8121738656511948, pvalue=0.07151351629223547)
 
 
 ​    
-    The t-test results for SG:ARG column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=0.622305786166279, pvalue=0.5344753280212086)
+​    The t-test results for SG:ARG column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=0.622305786166279, pvalue=0.5344753280212086)
 
 
 ​    
-    The t-test results for TOTAL_SG:PUTTING column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=-1.1229272480016679, pvalue=0.2628633304520743)
+​    The t-test results for TOTAL_SG:PUTTING column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=-1.1229272480016679, pvalue=0.2628633304520743)
 
 
 ​    
@@ -3016,22 +2789,6 @@ bottom_50_df[h3_list].describe()
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3092,7 +2849,7 @@ bottom_50_df[h3_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -3102,22 +2859,6 @@ top_50_df[h3_list].describe()
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3178,7 +2919,7 @@ top_50_df[h3_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -3189,21 +2930,6 @@ over_300_df[h3_list].describe()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3264,7 +2990,7 @@ over_300_df[h3_list].describe()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -3287,22 +3013,6 @@ h3_list_corr_df
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3333,7 +3043,7 @@ h3_list_corr_df
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -3427,13 +3137,13 @@ for x in h3_list:
 
 
 ​    
-    The t-test results for AVG_SCORE column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=-4.225368653932252, pvalue=3.6606668081070745e-05)
+​    The t-test results for AVG_SCORE column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=-4.225368653932252, pvalue=3.6606668081070745e-05)
 
 
 ​    
-    The t-test results for PAR_OR_BETTER column comparing the top and bottom 50% in average driving distance are:
-    Ttest_indResult(statistic=-1.8198240595544244, pvalue=0.07031918864409493)
+​    The t-test results for PAR_OR_BETTER column comparing the top and bottom 50% in average driving distance are:
+​    Ttest_indResult(statistic=-1.8198240595544244, pvalue=0.07031918864409493)
 
 
 ​    
@@ -3456,13 +3166,13 @@ for y in h3_list:
 
 
 ​    
-    The t-test results for AVG_SCORE column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=-4.431973933828141, pvalue=1.5640004669604865e-05)
+​    The t-test results for AVG_SCORE column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=-4.431973933828141, pvalue=1.5640004669604865e-05)
 
 
 ​    
-    The t-test results for PAR_OR_BETTER column comparing the over and under average driving distance of 300 yards are:
-    Ttest_indResult(statistic=-1.1746633958676564, pvalue=0.24157668212690542)
+​    The t-test results for PAR_OR_BETTER column comparing the over and under average driving distance of 300 yards are:
+​    Ttest_indResult(statistic=-1.1746633958676564, pvalue=0.24157668212690542)
 
 
 ​    
@@ -3471,8 +3181,6 @@ for y in h3_list:
 Statistically significant for the average score between the over 300 and under 300 yard average driving distance groupings with a p-value of 1.56e-05.
 
 Summary and Conclusion of H3 Testing:
-
-
 
 *   Lower mean average score in top 50% group vs bottom 50% group.
 *   Even slightly lower mean score in over 300 year group compared to top 50% group.
@@ -3511,22 +3219,6 @@ h4_list_corr_df
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3613,8 +3305,6 @@ h4_list_corr_df
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 See high correlations between driving distance and the following variables: fairways hit (- correlation), going for green in 2 (+ correlation), score relative to par when going for green (+ correlation).
@@ -3682,11 +3372,7 @@ plt.show()
 
 
 
-
-
-##Factors Into Increased Driving Distance
-
-
+## Factors Into Increased Driving Distance
 
 Create list of variables in dataset to analyze to determine which variables lead to highest increase in driving distance
 
@@ -3713,22 +3399,6 @@ driving_dist_factors_df
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3834,7 +3504,7 @@ driving_dist_factors_df
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -3884,11 +3554,8 @@ plt.show()
 ```
 
 
-​    
 ![png](images/output_165_0.png)
 ​    
-
-
 
 
 *   Easily see the positive correlation with driving distance and club head speed as well as ball speed which will always be similar to each other and have a correlation of .96.
@@ -3927,11 +3594,9 @@ plt.show()
 
 *   There is no correlation between driving distance and spin rate 
 
+---
 
-
-
-
-##Recommendations from hypotheses and other insights from analysis
+## Recommendations from hypotheses and other insights from analysis
 
 
 Based on data analysis, all alternate hypotheses were accepted below:
